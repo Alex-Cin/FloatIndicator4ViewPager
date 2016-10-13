@@ -58,7 +58,7 @@ public class BeforeGameScoreFragment extends Fragment {
      */
     private void initView() {
         xRecyclerView = (XRecyclerView) rootView.findViewById(R.id.xrv);
-        adapter = new ScoreRecyclerAdapter(getContext());
+        adapter = new ScoreRecyclerAdapter();
         xRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         xRecyclerView.setItemAnimator(new DefaultItemAnimator());
         xRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);

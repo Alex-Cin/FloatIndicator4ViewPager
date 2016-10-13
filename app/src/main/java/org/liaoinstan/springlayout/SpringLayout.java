@@ -17,7 +17,7 @@ import android.widget.OverScroller;
 
 import com.alex.floatindicator.R;
 
-import org.alex.callback.refreshloadmore.OnLoadMoreListener;
+import org.liaoinstan.springlayout.callback.OnLoadMoreListener;
 import org.liaoinstan.springlayout.container.DefaultFooter;
 import org.liaoinstan.springlayout.container.DefaultHeader;
 

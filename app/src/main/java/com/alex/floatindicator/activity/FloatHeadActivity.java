@@ -44,7 +44,7 @@ public class FloatHeadActivity extends AppCompatActivity{
      */
     private void initView() {
         xRecyclerView = (XRecyclerView) findViewById(R.id.xrv);
-        adapter = new ScoreRecyclerAdapter(this);
+        adapter = new ScoreRecyclerAdapter();
         xRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         xRecyclerView.setItemAnimator(new DefaultItemAnimator());
         xRecyclerView.setAdapter(adapter);

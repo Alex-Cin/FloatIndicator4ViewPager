@@ -1,10 +1,11 @@
 package com.alex.floatindicator.activity;
 
+import android.os.Bundle;
 import android.webkit.WebView;
 
 import com.alex.floatindicator.R;
 
-import org.alex.mvcapp.baseui.BaseActivity;
+import org.alex.baseui.BaseActivity;
 
 /**
  * 作者：Alex
@@ -20,9 +21,9 @@ public class FadeTitleActivity extends BaseActivity {
     }
 
     @Override
-    public void onCreateData() {
-        super.onCreateData();
+    public void onCreateData(Bundle bundle) {
         WebView webView = findView(R.id.wv);
         webView.loadUrl("http://www.jianshu.com/users/c3c4ea133871/latest_articles");
     }
+
 }

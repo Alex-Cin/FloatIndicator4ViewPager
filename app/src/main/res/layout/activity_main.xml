@@ -34,6 +34,18 @@
             android:layout_height="wrap_content"
             android:text="滑动隐藏的标题"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/bt_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="隐藏虚拟键"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/bt_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="显示虚拟键"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </ScrollView>

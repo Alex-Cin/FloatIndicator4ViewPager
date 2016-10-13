@@ -46,7 +46,7 @@ public class FloatIndicatorActivity extends AppCompatActivity {
         TitleFragmentPagerAdapter adapter = new TitleFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        adapter.addItem(new BeforeGameDataFragment(), new BeforeGameScoreFragment(), new BeforeGameInfoStationFragment());
+        adapter.addFm(new BeforeGameDataFragment(), new BeforeGameScoreFragment(), new BeforeGameInfoStationFragment());
         adapter.addTitle("赛前数据","赛前情评分","赛前情报站" );
 
         TabsIndicator tabsIndicator = (TabsIndicator) findViewById(R.id.ti);
