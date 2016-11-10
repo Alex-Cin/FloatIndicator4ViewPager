@@ -16,6 +16,12 @@
             android:text="悬浮指示器"/>
 
         <Button
+            android:id="@+id/bt_1_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="悬浮指示器2"/>
+
+        <Button
             android:id="@+id/bt_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,12 +40,14 @@
             android:layout_height="wrap_content"
             android:text="滑动隐藏的标题"
             android:textAllCaps="false"/>
+
         <Button
             android:id="@+id/bt_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="隐藏虚拟键"
             android:textAllCaps="false"/>
+
         <Button
             android:id="@+id/bt_6"
             android:layout_width="match_parent"

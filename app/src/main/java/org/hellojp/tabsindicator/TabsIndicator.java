@@ -108,7 +108,8 @@ public class TabsIndicator extends LinearLayout implements View.OnClickListener,
             return;
         }
         tabCount = pagerAdapter.getCount();
-        this.viewPager.setOnPageChangeListener(this);
+        //this.viewPager.setOnPageChangeListener(this);
+        this.viewPager.addOnPageChangeListener(this);
         initTabs(index);
         postInvalidate();
     }
@@ -195,7 +196,6 @@ public class TabsIndicator extends LinearLayout implements View.OnClickListener,
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         path.rewind();
-        //TODO
         float leftX = lineMarginTab + lineMarginX;
         float rightX = leftX + tabWidth - 2 * lineMarginTab;
         float topY = 0;

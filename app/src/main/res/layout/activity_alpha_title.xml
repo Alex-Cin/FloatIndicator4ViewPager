@@ -46,6 +46,7 @@
         app:layout_behavior="org.alex.behavior.AlphaTitleLayoutBehavior">
 
         <TextView
+            android:id="@+id/tv_back"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="#8A93C1"

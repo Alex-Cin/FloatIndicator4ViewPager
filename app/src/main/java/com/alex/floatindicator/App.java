@@ -1,6 +1,7 @@
 package com.alex.floatindicator;
 
-import org.alex.app.BaseApp;
+
+import org.alex.baseui.BaseApp;
 
 /**
  * 作者：Alex

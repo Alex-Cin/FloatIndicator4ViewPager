@@ -21,5 +21,8 @@
         <item name="android:textStyle">bold</item>
 
     </style>
+    <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+    </style>
 
 </resources>

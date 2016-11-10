@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 
 import com.alex.floatindicator.R;
-
-import org.alex.baseui.BaseActivity;
+import com.alex.floatindicator.baseui.FIVActivity;
 
 /**
  * 作者：Alex
@@ -14,7 +13,7 @@ import org.alex.baseui.BaseActivity;
  * 启动者：
  * ------------{@link MainActivity}
  */
-public class FadeTitleActivity extends BaseActivity {
+public class FadeTitleActivity extends FIVActivity {
     @Override
     public int getLayoutResId() {
         return R.layout.activity_fade_title;

@@ -199,26 +199,28 @@
             android:layout_height="0.5dp"
             android:background="#EE009688"/>
 
-        <org.hellojp.tabsindicator.TabsIndicator
-            xmlns:tabsIndicator="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/ti"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_gravity="bottom"
-            android:background="#009688"
-            tabsIndicator:dividerColor="#E0F2F1"
-            tabsIndicator:dividerVerticalMargin="10dp"
-            tabsIndicator:dividerWidth="2dp"
-            tabsIndicator:hasDivider="true"
-            tabsIndicator:lineColor="#00695C"
-            tabsIndicator:lineHeight="2dp"
-            tabsIndicator:lineMarginTab="20dp"
-            tabsIndicator:linePosition="bottom"
-            tabsIndicator:textBackgroundResId="@drawable/selector_view_tabs_item"
-            tabsIndicator:textColor="@drawable/selector_tab"
-            tabsIndicator:textSizeNormal="14sp"
-            tabsIndicator:textSizeSelected="18sp"/>
-    </android.support.design.widget.AppBarLayout>
+
+
+            <org.hellojp.tabsindicator.TabsIndicator
+                xmlns:tabsIndicator="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/ti"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                android:background="#009688"
+                tabsIndicator:dividerColor="#E0F2F1"
+                tabsIndicator:dividerVerticalMargin="10dp"
+                tabsIndicator:dividerWidth="2dp"
+                tabsIndicator:hasDivider="true"
+                tabsIndicator:lineColor="#00695C"
+                tabsIndicator:lineHeight="2dp"
+                tabsIndicator:lineMarginTab="20dp"
+                tabsIndicator:linePosition="bottom"
+                tabsIndicator:textBackgroundResId="@drawable/selector_view_tabs_item"
+                tabsIndicator:textColor="@drawable/selector_tab"
+                tabsIndicator:textSizeNormal="14sp"
+                tabsIndicator:textSizeSelected="18sp"/>
+        </android.support.design.widget.AppBarLayout>
 
 
     <android.support.v4.view.ViewPager

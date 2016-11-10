@@ -4,14 +4,12 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.alex.floatindicator.R;
+import com.alex.floatindicator.baseui.FIVActivity;
 import com.alex.floatindicator.fragment.BeforeGameDataFragment;
 import com.alex.floatindicator.fragment.BeforeGameInfoStationFragment;
 import com.alex.floatindicator.fragment.BeforeGameScoreFragment;
@@ -22,14 +20,24 @@ import org.hellojp.tabsindicator.TabsIndicator;
 
 /**
  * @link https://github.com/loonggg/CoordinatorLayoutDemo
- * */
-public class FloatIndicatorActivity extends AppCompatActivity {
+ */
+public class FloatIndicatorActivity extends FIVActivity {
     private LinearLayout headLayout;
     private ViewPager viewPager;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getLayoutResId() {
+        return R.layout.activity_float_indicator;
+    }
+
+    @Override
+    public boolean canAutoBindClickListener() {
+        return false;
+    }
+
+    @Override
+    public void onCreateData(Bundle bundle) {
         setContentView(R.layout.activity_float_indicator);
         AppBarLayoutOnOffsetChangedListener onOffsetChangedListener = new AppBarLayoutOnOffsetChangedListener();
         ViewOnClickListener onClickListener = new ViewOnClickListener();
@@ -47,24 +55,10 @@ public class FloatIndicatorActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         adapter.addFm(new BeforeGameDataFragment(), new BeforeGameScoreFragment(), new BeforeGameInfoStationFragment());
-        adapter.addTitle("赛前数据","赛前情评分","赛前情报站" );
+        adapter.addTitle("赛前数据", "赛前情评分", "赛前情报站");
 
         TabsIndicator tabsIndicator = (TabsIndicator) findViewById(R.id.ti);
         tabsIndicator.setViewPager(0, viewPager);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (R.id.action_settings == item.getItemId()) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private final class ViewOnClickListener implements View.OnClickListener {

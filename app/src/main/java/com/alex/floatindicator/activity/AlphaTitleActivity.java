@@ -1,21 +1,25 @@
 package com.alex.floatindicator.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.alex.floatindicator.R;
+import com.alex.floatindicator.baseui.FIVActivity;
 
 /**
  * 作者：Alex
  * 时间：2016/9/20 16:21
  * 简述：
  */
-public class AlphaTitleActivity extends AppCompatActivity {
+public class AlphaTitleActivity extends FIVActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alpha_title);
+    public int getLayoutResId() {
+        return R.layout.activity_alpha_title;
+    }
+
+
+    @Override
+    public void onCreateData(Bundle bundle) {
 
     }
 }

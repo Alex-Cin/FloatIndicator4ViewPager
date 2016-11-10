@@ -3,13 +3,12 @@ package com.alex.floatindicator.activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.alex.floatindicator.R;
 import com.alex.floatindicator.adapter.ScoreRecyclerAdapter;
+import com.alex.floatindicator.baseui.FIVActivity;
 import com.alex.floatindicator.config.AppCon;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -21,7 +20,7 @@ import java.util.List;
  * 时间：2016/8/3 17:55
  * 博客地址：http://www.jianshu.com/users/c3c4ea133871/subscriptions
  */
-public class FloatHeadActivity extends AppCompatActivity{
+public class FloatHeadActivity extends FIVActivity{
     protected int pageindex = 1;
     /**加载类型：  首次加载  上拉加载  下拉刷新*/
     protected String loadType;
@@ -30,9 +29,13 @@ public class FloatHeadActivity extends AppCompatActivity{
     private ScoreRecyclerAdapter adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_float_head);
+    public int getLayoutResId() {
+        return R.layout.activity_float_head;
+    }
+
+
+    @Override
+    public void onCreateData(Bundle bundle) {
         initView();
         loadJsonData();
     }
