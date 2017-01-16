@@ -1,21 +1,25 @@
 package com.alex.floatindicator.fragment;
 
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.alex.floatindicator.R;
 import com.alex.floatindicator.adapter.ScoreRecyclerAdapter;
 import com.alex.floatindicator.config.AppCon;
-import com.jcodecraeer.xrecyclerview.ProgressStyle;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
+
+import org.alex.helper.RecyclerViewHelper;
+import org.alex.helper.itemdecoration.SimpleItemDecoration;
+import org.alex.helper.recycler.LayoutType;
+import org.alex.refreshlayout.RefreshLayout;
+import org.alex.refreshlayout.callback.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +27,17 @@ import java.util.List;
 @SuppressLint("InflateParams")
 public class BeforeGameScoreFragment extends Fragment {
     protected int pageindex = 1;
-    /**加载类型：  首次加载  上拉加载  下拉刷新*/
+    /**
+     * 加载类型：  首次加载  上拉加载  下拉刷新
+     */
     protected String loadType;
     protected View rootView;
+    private Handler handler;
+    private RefreshLayout refreshLayout;
 
-    private XRecyclerView xRecyclerView;
+    private int loadMore;
     private ScoreRecyclerAdapter adapter;
+    private TextView tvFoot;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -41,7 +50,6 @@ public class BeforeGameScoreFragment extends Fragment {
         if (rootView == null) {
             rootView = inflater.inflate(R.layout.fragment_game_before_score, null);
             initView();
-            loadJsonData();
         }
         /*过滤Fragment重叠，如果是 Fragment嵌套Fragment，不能加这个*/
         ViewGroup parent = (ViewGroup) rootView.getParent();
@@ -57,61 +65,63 @@ public class BeforeGameScoreFragment extends Fragment {
      * @time 2014-12-27    09:52
      */
     private void initView() {
-        xRecyclerView = (XRecyclerView) rootView.findViewById(R.id.xrv);
+        RecyclerView recyclerview = (RecyclerView) rootView.findViewById(R.id.rv);
+        RecyclerViewHelper.Builder.getInstance().layoutManager(LayoutType.VLinearLayout).build().attachToRecyclerView(recyclerview);
+        SimpleItemDecoration.Builder.getInstance().backgroundColor("#F9F9F9").color("#EEEEEE").dividerSize(4).build().attachToRecyclerView(recyclerview);
         adapter = new ScoreRecyclerAdapter();
-        xRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        xRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        xRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        xRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallBeat);
-        xRecyclerView.setLoadingListener(new MyLoadListener());
-        xRecyclerView.setAdapter(adapter);
+        recyclerview.setAdapter(adapter);
+        handler = new android.os.Handler(Looper.getMainLooper());
+        refreshLayout = (RefreshLayout) rootView.findViewById(R.id.srl);
+        refreshLayout.setOnRefreshListener(new MyOnRefreshListener());
+        refreshLayout.autoRefresh();
+        View footView =  LayoutInflater.from(getContext()).inflate(R.layout.swipe_refresh_default_footer, null);
+        tvFoot = (TextView) footView.findViewById(R.id.default_footer_title);
+        tvFoot.setText("加载中");
+        adapter.addFootView(footView);
+        refreshLayout.setFootView(tvFoot);
     }
 
-    private final class MyLoadListener implements XRecyclerView.LoadingListener {
-        @Override
-        public void onRefresh()
-        {
-            loadType = AppCon.loadRefresh;
-            pageindex = 1;
-            new LoadTadk().execute();
-        }
-        @Override
-        public void onLoadMore()
-        {
-            loadType = AppCon.loadMore;
-            pageindex++;
-            new LoadTadk().execute();
-        }
-    }
+    private final class MyOnRefreshListener implements OnRefreshListener {
 
-
-    private final class LoadTadk extends AsyncTask<Void, Void, Void> {
+        /**
+         * Called when a swipe gesture triggers a refresh.
+         */
+        @Override
+        public void onRefresh() {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadMore = 0;
+                    adapter.refreshItem(getList5());
+                    refreshLayout.setLoadMoreEnabled(true);
+                    refreshLayout.stopRefreshLayout();
+                }
+            }, 2000);
+        }
 
         @Override
-        protected Void doInBackground(Void... params)
-        {
-            SystemClock.sleep(1500);
-            return null;
+        public void onLoadMore() {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //adapter.addItem("我是 loadMore " + (loadMore++));
+                    //adapter.addItem("我是 loadMore " + (loadMore++));
+                    refreshLayout.setLoadMoreFailLabel("没有更多数据");
+                    refreshLayout.setLoadMoreEnabled(false);
+                    refreshLayout.stopRefreshLayout();
+                }
+            }, 2000);
         }
-        @Override
-        protected void onPostExecute(Void result)
-        {
-            xRecyclerView.refreshComplete();
-            xRecyclerView.loadMoreComplete();
-            super.onPostExecute(result);
-        }
-
-    }
-
-    private void loadJsonData() {
-        List<String> list = new ArrayList<String>();
-        for (int i = 0; i < 10; i++) {
-            list.add("我是数据 " + i);
-        }
-        adapter.addItem(list);
     }
 
 
+    private List<String> getList5() {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            list.add("你好 " + i);
+        }
+        return list;
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -1,1 +1,1 @@
-include ':app', ':xrecyclerview'
+include ':app', ':library:xrecyclerview', ':library:circleimageview', ':library:simplerefreshlayout'

@@ -15,7 +15,6 @@ import com.alex.floatindicator.fragment.BeforeGameInfoStationFragment;
 import com.alex.floatindicator.fragment.BeforeGameScoreFragment;
 
 import org.alex.adapter.TitleFragmentPagerAdapter;
-import org.alex.util.LogUtil;
 import org.hellojp.tabsindicator.TabsIndicator;
 
 /**
@@ -71,7 +70,6 @@ public class FloatIndicatorActivity extends FIVActivity {
     private final class AppBarLayoutOnOffsetChangedListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-            LogUtil.e("verticalOffset = " + verticalOffset);
             if (verticalOffset <= -headLayout.getHeight() / 2) {
                 collapsingToolbarLayout.setTitle("Alex");
             } else {

@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.alex.floatindicator.R;
 
+import org.alex.callback.SimpleWebViewClient;
+import org.alex.helper.WebViewHelper;
 import org.alex.view.NestedWebView;
 
 @SuppressLint("InflateParams")
@@ -20,6 +22,7 @@ public class BeforeGameInfoStationFragment extends Fragment {
      * ViewPager 的 子控件，ListView 或者 ScrollView 滑动到了
      */
     private boolean isChildOnTop;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (rootView == null) {
@@ -41,7 +44,9 @@ public class BeforeGameInfoStationFragment extends Fragment {
      */
     private void initView() {
         webView = (NestedWebView) rootView.findViewById(R.id.wv);
+        WebViewHelper.Builder.getInstance().build().attachToWebView(webView);
         webView.loadUrl("http://www.jianshu.com/users/c3c4ea133871/latest_articles");
+        webView.setWebViewClient(new SimpleWebViewClient());
     }
 
     @Override

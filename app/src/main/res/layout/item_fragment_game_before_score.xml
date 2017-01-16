@@ -1,14 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="164dp"
+              android:layout_height="wrap_content"
+              android:background="#F9F9F9"
               tools:ignore="ContentDescription,UselessParent">
 
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:lineSpacingMultiplier="1.5"
         android:paddingLeft="16dp"

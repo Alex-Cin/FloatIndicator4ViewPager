@@ -54,7 +54,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/alex_theme_no_title">
         <activity android:name="com.alex.floatindicator.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -11,49 +11,43 @@
 
         <Button
             android:id="@+id/bt_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="悬浮指示器"/>
 
         <Button
             android:id="@+id/bt_1_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+
+            style="@style/item_view_1"
             android:text="悬浮指示器2"/>
 
         <Button
             android:id="@+id/bt_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="悬浮视图"/>
 
         <Button
             android:id="@+id/bt_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="渐透明的标题"
-            android:textAllCaps="false"/>
+            />
 
         <Button
             android:id="@+id/bt_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="滑动隐藏的标题"
-            android:textAllCaps="false"/>
+            />
 
         <Button
             android:id="@+id/bt_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="隐藏虚拟键"
-            android:textAllCaps="false"/>
+            />
 
         <Button
             android:id="@+id/bt_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/item_view_1"
             android:text="显示虚拟键"
-            android:textAllCaps="false"/>
+            />
     </LinearLayout>
 
 </ScrollView>

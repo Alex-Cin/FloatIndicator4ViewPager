@@ -4,7 +4,7 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.alex.floatindicator.R;
-import com.chad.adapter.BaseViewHolder;
+import com.chad.adapter.Holder;
 import com.chad.adapter.SingleRecyclerAdapter;
 
 
@@ -21,14 +21,15 @@ public class BeforeGameInfoStatioAdapter extends SingleRecyclerAdapter<String> {
     }
 
     @Override
-    protected void onConvert(BaseViewHolder holder, String s, int i) {
+    protected void onConvert(Holder holder, String s, int i) {
         WebView webView = holder.findView(R.id.wv);
         String url = "http://news.baidu.com/";
         //url = "https://www.baidu.com/";
         webView.loadUrl(url);
         /*背景透明*/
         webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-		/*背景透明*/
+        /*背景透明*/
         webView.setBackgroundColor(0);
     }
+
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import com.alex.floatindicator.R;
 import com.alex.floatindicator.baseui.FIVActivity;
 
+import org.alex.helper.IntentHelper;
 import org.alex.util.VirtualKeyUtil;
 
 /**
@@ -27,15 +28,15 @@ public class MainActivity extends FIVActivity {
     @Override
     public void onClick(View v) {
         if (R.id.bt_1 == v.getId()) {
-            startActivity(FloatIndicatorActivity.class);
+            IntentHelper.getInstance().startActivity(FloatIndicatorActivity.class);
         } else if (R.id.bt_1_1 == v.getId()) {
-            startActivity(SwipeRefreshFloatIndicatorActivity.class);
+            IntentHelper.getInstance().startActivity(SwipeRefreshFloatIndicatorActivity.class);
         } else if (R.id.bt_2 == v.getId()) {
-            startActivity(FloatHeadActivity.class);
+            IntentHelper.getInstance().startActivity(FloatHeadActivity.class);
         } else if (R.id.bt_3 == v.getId()) {
-            startActivity(AlphaTitleActivity.class);
+            IntentHelper.getInstance().startActivity(AlphaTitleActivity.class);
         } else if (R.id.bt_4 == v.getId()) {
-            startActivity(FadeTitleActivity.class);
+            IntentHelper.getInstance().startActivity(FadeTitleActivity.class);
         } else if (R.id.bt_5 == v.getId()) {
             VirtualKeyUtil.hideVirtualKey(this, false);
         } else if (R.id.bt_6 == v.getId()) {

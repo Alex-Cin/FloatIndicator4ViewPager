@@ -9,7 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/xrecyclerview" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/library/circleimageview" />
+            <option value="$PROJECT_DIR$/library/simplerefreshlayout" />
+            <option value="$PROJECT_DIR$/library/xrecyclerview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,7 +1,7 @@
 package com.alex.floatindicator.adapter;
 
 import com.alex.floatindicator.R;
-import com.chad.adapter.BaseViewHolder;
+import com.chad.adapter.Holder;
 import com.chad.adapter.SingleRecyclerAdapter;
 
 
@@ -13,7 +13,8 @@ public class ScoreRecyclerAdapter extends SingleRecyclerAdapter<String> {
     }
 
     @Override
-    protected void onConvert(BaseViewHolder baseViewHolder, String s, int i) {
+    protected void onConvert(Holder holder, String result, int position) {
 
     }
+
 }
